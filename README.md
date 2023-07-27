@@ -19,20 +19,25 @@
   - https://bookdown.org/yihui/rmarkdown-cookbook/
   - https://bookdown.org/yihui/rmarkdown-cookbook/html-tabs.html
 ### Gradle Commands
+#### run the application locally
 ```shell
-# run the application locally
 ./gradlew bootRun
 ```
-
+#### print the project's dependencies
 ```shell
-# Print out dependencies:
 ./gradlew dependencies
 ```
 
+#### print the compileClasspath
 ```shell
-# Print out dependencies:
 ./gradlew dependencies --configuration compileClasspath
 ```
+
+#### Print the help of the task "dependencies"
+```shell
+./gradlew help --task dependencies
+```
+
 
 ## Tasks
 - [X] Create an empty application with a hello-world method.
