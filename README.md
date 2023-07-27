@@ -18,6 +18,108 @@
   - https://www.markdownguide.org/
   - https://bookdown.org/yihui/rmarkdown-cookbook/
   - https://bookdown.org/yihui/rmarkdown-cookbook/html-tabs.html
+### Test using `curl`
+#### Simple Request Example
+- https://en.wikipedia.org/wiki/Cross-origin_resource_sharing#Simple_request_example
+##### method `GET`
+```shell
+curl --request GET \
+    --url http://localhost:8080/api/rest/hello \
+    -i \
+    -H 'Origin: http://test.127-0-0-0.nip.io' \
+# end of command
+```
+```
+HTTP/1.1 200 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Access-Control-Allow-Origin: *
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Thu, 27 Jul 2023 22:50:25 GMT
+
+{"answer":"Hello World!"}
+```
+##### method `POST`
+```shell
+curl --request POST \
+    --url http://localhost:8080/api/rest/hello \ 
+    -i \
+    -H 'Origin: http://test.127-0-0-0.nip.io' \
+# end of command
+```
+```
+HTTP/1.1 403 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Access-Control-Allow-Origin: *
+Set-Cookie: JSESSIONID=47009181B6946F5D2A9E33FF152EC373; Path=/; HttpOnly
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Thu, 27 Jul 2023 22:56:55 GMT
+
+{"timestamp":"2023-07-27T22:56:55.536+00:00","status":403,"error":"Forbidden","path":"/api/rest/hello"}
+```
+##### method `DELETE`
+```shell
+curl --request PUT \
+    --url http://localhost:8080/api/rest/hello \
+    -i \
+    -H 'Origin: http://test.127-0-0-0.nip.io' \
+# end of command
+```
+```
+HTTP/1.1 403 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Transfer-Encoding: chunked
+Date: Thu, 27 Jul 2023 22:58:40 GMT
+
+Invalid CORS request
+```
+#### Preflight example
+https://en.wikipedia.org/wiki/Cross-origin_resource_sharing#Preflight_example
+##### for method `PUT`
+```shell
+curl --request OPTIONS \
+    -- url http://localhost:8080/api/rest/hello \
+    -i \
+    -H 'Origin: test.127-0-0-0.nip.io' \
+    -H 'Access-Control-Request-Method: PUT' \
+# end of command
+```
+
+##### for method `POST`
+```shell
+curl --request OPTIONS \
+    -- url http://localhost:8080/api/rest/hello \
+    -i \
+    -H 'Origin: test.127-0-0-0.nip.io' \
+    -H 'Access-Control-Request-Method: POST' \
+# end of command
+```
+
 ### Gradle Commands
 #### run the application locally
 ```shell
