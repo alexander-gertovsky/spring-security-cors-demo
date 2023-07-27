@@ -1,6 +1,11 @@
 
 
 ## See also (Tools and libs)
+- About CORS
+  - https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
+  - https://en.wikipedia.org/wiki/Cross-origin_resource_sharing
+  - http://www.w3.org/TR/cors/
+  - https://cors-test.codehappy.dev
 - spring-security latest
   - https://docs.spring.io/spring-security/reference/current/index.html
   - https://docs.spring.io/spring-security/reference/current/servlet/integrations/cors.html
