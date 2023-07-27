@@ -35,12 +35,13 @@
   - [ ] Write the description of the project
   - [ ] Write the instructions to start the project
   - [ ] Write the boundary of the project
-  - [ ] Write sea also
+  - [ ] Write see also
 - [X] Configure the spring-security 
   - [X] with enabled CORS configuration
   - [X] and disabled authentication
 - Test and demo
-  - [ ] Check on https://cors-test.codehappy.dev
+  - [X] ~~Check with https://cors-test.codehappy.dev~~
+    * https://cors-test.codehappy.dev tested on the server-side (backend) so at least I need to have a public ip.
   - [ ] Create the local cross-domain test
     - [ ] Write the instruction
 
